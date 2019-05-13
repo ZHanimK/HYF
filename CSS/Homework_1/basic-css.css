@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  @font-face { font-family: noelan ; 
+    src: url('basic-css-fonts/noelan.otf'); } 
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  /* Style the header */
+  .header {
+    background-color: #d5f4e6;
+    padding: 40px;
+    text-align: center;
+    font-size: 35px;
+  }
+  
+  /* Container for flexboxes */
+  .row {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  /* Create three equal columns that sits next to each other */
+  .column {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Style the footer */
+  .footer {
+    background-color:#80ced6;
+    padding: 10px;
+    text-align: center;
+  }
+
+ h2 {
+      display: inline-block;
+      font-family: "noelan";
+      font-weight: 800;
+      color:black;
+  } 
+#logo{
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+  /* ???? why Cant I make the myimage bigger and align upper!!! */
+  #myimage{
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.4);
+    border: white 1px solid;
+    width:60px;
+    height:auto;
+    margin-top: 0;
+    padding: 0;
+    top: -20px;
+    float: right;
+  }
+  .icenter{
+    text-align:center;
+  }
+  .icenter i {
+    margin:auto;
+  }
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+  .aboutme {
+    background-color:#fefbd8;
+  }
+  .experience {
+    background-color:#eaece5;
+    
+  }
+  .skills {
+    background-color:#618685; 
+  }
+  a {
+    text-shadow: 4px 4px turquoise;
+  }
+  a:hover{
+    text-shadow: -4px -4px #E37568;
+  }
+
+
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    h2 {
+    font-size: 20px;
+      }
+    .row {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  }
+
+
+  
