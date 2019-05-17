@@ -4,7 +4,7 @@
 
 ##### Here are the subjects covered in this course
 
-![](https://im3.ezgif.com/tmp/ezgif-3-d7b11d2d54ae.png) ![](https://im3.ezgif.com/tmp/ezgif-3-139ce8e56e11.png) ![](https://im3.ezgif.com/tmp/ezgif-3-083d54f8cb25.png) ![](https://im3.ezgif.com/tmp/ezgif-3-036c34e4eb3f.png) ![](https://img.icons8.com/ultraviolet/80/000000/data-configuration.png)![](https://im3.ezgif.com/tmp/ezgif-3-199a7ec7befd.png) 
+![](https://i.imgur.com/KC2Lm5i.png) ![](https://i.imgur.com/Ma6Y00k.png) ![](https://i.imgur.com/zq0dnuU.png) ![](https://i.imgur.com/YxvjQPq.png) ![](https://img.icons8.com/ultraviolet/80/000000/data-configuration.png)![](https://i.imgur.com/ZCObabr.png) 
 
 <link rel="icon" href="/YourIcon.ico" type="image/x-icon" />
 
