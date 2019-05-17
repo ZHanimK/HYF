@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My To-Do List</title>
+    
+    <link rel="favicon" type="image/png" href="https://apprecs.org/gp/images/app-icons/300/8a/io.tinbits.memorigi.jpg"/>
+</head>
+<body>
+    <div class="container">
+    <h1>My To-Do List</h1>
+    <label id="input-task" for="userTask">Insert a task to do...</label>
+    <input type="text" id="userTask" value="">
+    <button type="button" id="add-task-button">Click here to add task!</button>
+    <ul id="task-list">
+    
+    </ul>
+    </div>
+
+    <script>
+    document.getElementById("add-task-button").disabled = true;
+    document.getElementById("add-task-button").onclick = function() {addtask() };
+    var newSpan = document.createElement("span");
+    let myDefaultList= [
+        {date:"today", task:"Laundry", check: "done"},
+        {date:"yesterday", task:"dishes", check:"undone"},
+        {date:"tomorrow", task:"bills", check:"undone"}
+    ]
+    console.log(myDefaultList);
+    let taskList = document.getElementById("task-list");
+
+    myDefaultList.forEach(function(element) {
+    console.log(element.task);
+    let newLi = document.createElement("li");
+    newLi .innerHTML = element.task;
+    taskList.insertBefore(newLi, taskList.childNodes[0]);
+    });
+
+    // for (i = 0; i < myDefaultList.length; i++) {
+    //     let newLi = document.createElement("li");
+    //     newLi .innerHTML = myDefaultList[i];
+    //     taskList.insertBefore(newLi, taskList.childNodes[i]);
+    //     let deleteButton=document.createElement("button");
+    //     deleteButton.innerText="Delete";
+    //     deleteButton.className="delete";
+    // }
+
+    function addtask() {
+        let task = document.getElementById("userTask").value;
+        let newLi = document.createElement("li");
+        let deleteButton=document.createElement("button");
+        deleteButton.innerText="Delete";
+        deleteButton.className="delete";
+        let taskList = document.getElementById("task-list");
+        let count= document.getElementsByTagName("li").length+1;
+        taskList.appendChild(newSpan);
+        newSpan .innerHTML = count;
+        let newLiContent = document.createTextNode(task);
+        newLi.appendChild(newLiContent);
+        taskList.insertBefore(newLi, taskList.childNodes[0]);
+        newLi.appendChild(deleteButton);
+        let x=0;
+        let deleteAct = document.getElementsByClassName("delete");
+        deleteAct[x].onclick =function() {
+        taskList.removeChild(newLi, taskList.childNodes[x]);
+        count= document.getElementsByTagName("li").length;
+        newSpan .innerHTML = count;
+        
+        }
+        document.getElementById("add-task-button").disabled = true;
+    }
+
+    document.getElementById("userTask").addEventListener("input", function() {
+    let nameInput = document.getElementById("userTask").value
+    if (nameInput != "") {
+        
+        document.getElementById("add-task-button").disabled = false;
+        
+    } else {
+        document.getElementById("add-task-button").disabled = true;
+    }
+
+});
+    
+
+    </script>
+</body>
+</html>

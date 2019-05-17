@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const myArray = ["hanim", "zeynep", "Murat", "neva", "kapusuz"]
+    const anotherArray = ["hanim", 42, true]
+    const capArray = (array) => {
+      return new Promise(function (resolve, reject) {
+        toUpper = function (x) {
+          return x.toUpperCase();
+        };
+        const upperArray = array.map(toUpper);
+        resolve(upperArray)
+      })
+        .catch((error) => {
+          array.forEach(element => {
+            if (typeof element !== '') { console.log("errrrorrrr", error) }
+          })
+        });
+    }
+    console.log(capArray(myArray));
+
+  </script>
+</body>
+
+</html>

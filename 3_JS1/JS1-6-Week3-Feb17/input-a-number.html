@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Input a number</title>
+</head>
+<body>
+    <script>
+    let x = prompt("Enter a number");
+    if (x === ""){ //controls pushing enter without entering anything
+    window.alert("Fatal error! You should have entered number! Refresh the page");
+    } 
+    else if (isNaN(x)) {
+        
+        window.alert("ENTER a n-u-m-b-e-r!");
+    }
+    else {
+
+    window.alert("Thanx. Access granted!");
+    
+    }
+
+    </script>
+</body>
+</html>

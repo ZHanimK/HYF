@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .styled-bloc {
+        color:white;
+        background-color: black;
+        width: 300px;
+        height: 300px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="styled-bloc" id="bloc">My Bloc</div>
+
+    <script>
+    const selection1=document.getElementById('bloc');
+    console.log(selection1);
+    selection1.style.backgroundColor="red";
+    selection1.innerHTML="I get it! I am using js like a boss";
+    selection1.style.height = "50px";
+    selection1.style.width = "100px";
+    let input1=prompt("Please enter custom width?");
+    while (input1<100)
+    {
+        
+        input1=prompt("Please enter custom width?");
+    }
+    selection1.style.width = input1+'px';
+
+    </script>
+</body>
+</html>
