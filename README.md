@@ -20,6 +20,6 @@
 |   | Break             | 07 April    |             |             |         |          |           |
 | 5 | Node.js           | 14 April    | 21 April    | 28 April    |         |          |           |
 | 6 | Database          | 5 May       | 12 May      | 19 May      |         |          |           |
-| 7 | React             | 26 May      | 09 June     | 16 June     | 23 June | 30 June  |           |
+| 7 | React             | 26 May      | 02 June     | 09 June     | 16 June | 23 June  |           |
 | 8 | Project           | 07 July     | 14 July     | 21 July     | 28 July | 4 August | 11 August |
 
