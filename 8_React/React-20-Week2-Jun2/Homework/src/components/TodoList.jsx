@@ -34,7 +34,7 @@ export class TodoList extends React.Component {
               // suppose to update
               return {
                 ...item,
-                complete: !item.complete
+                done: !item.done
               };
             } else {
               return item;
