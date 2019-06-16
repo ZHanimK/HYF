@@ -7,6 +7,7 @@ export class TodoList extends React.Component {
     constructor() {
         super();
         this.state = {
+            editing: false,
             items: [
                 {
                     id:1,
@@ -28,6 +29,22 @@ export class TodoList extends React.Component {
     };
 
     toggleDone = id => {
+        this.setState(state => ({
+          items: state.items.map(item => {
+            if (item.id === id) {
+              // suppose to update
+              return {
+                ...item,
+                done: !item.done
+              };
+            } else {
+              return item;
+            }
+          })
+        }));
+    };
+
+    editTodo = id => {
         this.setState(state => ({
           items: state.items.map(item => {
             if (item.id === id) {
