@@ -14,7 +14,8 @@ let todos = [
 // Step 2: update the create request to be able to add an item to the list
 
 const create = (req, res) => {
-    res.status(200).send({ message: "to be implemented" });
+    todos.push(req.body);
+    res.status(200).send(todos);
 };
 
 const update = (req, res) => {
@@ -31,7 +32,12 @@ const list = (req, res) => {
 // Step 4: implement the delete feature here.
 
 const destroy = (req, res) => {
-    res.status(200).send({ message: "to be implemented" });
+    var index = todos.indexOf(req.body);
+ 
+    if (index > -1) {
+       todos.splice(index, 1);
+    }
+    res.status(200).send(todos);
 };
 
 module.exports = {

@@ -20,13 +20,22 @@ export class TodoList extends React.Component {
 
     // Step 1: change the onAddItem function to update the items on the server with a request
 
-    onAddItem = title => {
+    onAddItem = async newToDo => {
         let items = this.state.items;
-        items.push({
-            title,
+        const response = await fetch("/api/todos", {
+          method: "POST",
+          body: JSON.stringify({
+            id: items.length + 1,
+            title: newToDo,
             completed: false
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
         });
-        this.setState({ items });
+        const newItems = await response.json();
+        this.setState({ items: newItems });
+        console.log(items);
     };
 
     // FYI: here is a small example about how to handle the update of an item. Take inspiration from it to build the other requests!
@@ -49,12 +58,20 @@ export class TodoList extends React.Component {
 
     // Step 3: Do the same as you did on the client and on the server for handling the delete feature
 
-    handleDelete = index => {
-        let items = this.state.items;
-        const newItems = [...items.slice(0, index), ...items.slice(index + 1)];
+    handleDelete = async item=> {
+        //let items = this.state.items;
+        // const newItems = [...items.slice(0, index), ...items.slice(index + 1)];
         // const newItems2 = this.state.items.filter((item, indexItem) => {             // other way to delete an item from an array
         //     return indexItem !== index;
         // });
+        const response = await fetch(`/api/todos/${item.id}`, {
+            method: "DELETE",
+            body: JSON.stringify(item), // Coordinate the body type with 'Content-Type'
+            Headers: delete({
+                "Content-Type": "application/json"
+            })
+        });
+        const newItems = await response.json();
         this.setState({
             items: newItems
         });
