@@ -23,16 +23,22 @@ class App extends Component {
     };
 
     handleGet = async () => {
-        const response = await fetch("/api/hello");
-        const body = await response.json();
-        console.log(body)
-        this.setState({ response: body.express });
+        const response = await fetch("/api/todoItems");
+        const todoItems = await response.json();
+        //console.log(todoItems)
+        this.setState({ items: todoItems},()=>{
+            console.log(this.state.items);
+        });
     };
 
     render() {
         return (
             <div className="App">
                 <button onClick={this.handleGet}>Get Request</button>
+                {/* {
+                    this.state.items.map(value=>
+                        )
+                } */}
                 <p>Get answer: {this.state.response}</p>
                 <input
                     type="text"

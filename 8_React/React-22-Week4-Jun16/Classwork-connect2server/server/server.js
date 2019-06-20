@@ -13,11 +13,26 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'I received your GET request.' });
 });
 
-app.post('/api/world', (req, res) => {
-  console.log(req.body);
-  res.send(
-    `I received your POST request. Hello: ${req.body.post}`,
-  );
+const data=[
+  {
+    id:1,
+    title: "learn react",
+    done: false
+  },
+  {
+    id:2,
+    title: "do the dishes",
+    done: true
+  }
+]
+
+app.get('/api/todoItems', (req, res) => {
+  console.log(req.query)
+  res.status(200).send(data)
+  // console.log(req.body);
+  // res.send(
+  //   `I received your POST request. Hello: ${req.body.post}`,
+  // );
 });
 
 if (process.env.NODE_ENV === 'production') {
