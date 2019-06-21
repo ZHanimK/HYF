@@ -32,12 +32,11 @@ const list = (req, res) => {
 // Step 4: implement the delete feature here.
 
 const destroy = (req, res) => {
-    var index = todos.indexOf(req.body);
- 
-    if (index > -1) {
-       todos.splice(index, 1);
-    }
-    res.status(200).send(todos);
+    const index = todos.findIndex(
+        todo => todo.id === parseInt(req.params.todoId)
+      );
+      todos.splice(index, 1);
+      res.status(200).send(todos);
 };
 
 module.exports = {

@@ -58,35 +58,38 @@ export class TodoList extends React.Component {
 
     // Step 3: Do the same as you did on the client and on the server for handling the delete feature
 
-    handleDelete = async item=> {
-        //let items = this.state.items;
-        // const newItems = [...items.slice(0, index), ...items.slice(index + 1)];
-        // const newItems2 = this.state.items.filter((item, indexItem) => {             // other way to delete an item from an array
-        //     return indexItem !== index;
-        // });
+    handleDelete = async index => {
+        let item = this.state.items[index];
         const response = await fetch(`/api/todos/${item.id}`, {
             method: "DELETE",
-            body: JSON.stringify(item), // Coordinate the body type with 'Content-Type'
-            Headers: delete({
+            body: JSON.stringify(item),
+            headers: new Headers({
+                "Content-Type": "application/json"
+            })
+        });
+        const items = await response.json();
+        this.setState({
+            items
+        });
+    }
+
+    // Step 5: update an item by doing the same call as we did for handling the check/uncheck feature. Here you only need to change the client side since the server side is already done ;)
+
+    handleEdit = async (index, title) => {
+        let items = this.state.items;
+        let item = items[index];
+        item.title = title;
+        const response = await fetch(`/api/todos/${item.id}`, {
+            method: "PUT",
+            body: JSON.stringify(item),
+            headers: new Headers({
                 "Content-Type": "application/json"
             })
         });
         const newItems = await response.json();
         this.setState({
             items: newItems
-        });
-    };
-
-    // Step 5: update an item by doing the same call as we did for handling the check/uncheck feature. Here you only need to change the client side since the server side is already done ;)
-
-    handleEdit = (index, title) => {
-        let items = this.state.items;
-        let item = items[index];
-        item.title = title;
-        items[index] = item;
-        this.setState({
-            items
-        });
+        })
     };
 
     render() {
